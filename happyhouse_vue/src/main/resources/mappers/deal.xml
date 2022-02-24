@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.vue.model.mapper.DealMapper">
+
+ <select id="officeRentList" parameterType ="DealDto" resultType="DealDto">
+     SELECT dong, office_name name, gugun_code gugunCode, deposit, build_year buildYear, deal_year dealYear, deal_month dealMonth, deal_day dealDay, area, floor, jibun, rent_money rentMoney 
+       FROM officerent
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+      <if test="type == 1">
+     	AND rent_money > 0
+      </if>
+      <if test="type == 2">
+      	AND rent_money = 0
+      </if>
+   ORDER BY build_Year DESC
+      LIMIT #{start}, #{spp}
+ </select>
+ 
+ <select id="getTotCntOfficeRent" parameterType="DealDto" resultType="int">
+     SELECT count(idx) 
+       FROM officerent
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+      <if test="type == 1">
+     	AND rent_money > 0
+      </if>
+      <if test="type == 2">
+      	AND rent_money = 0
+      </if>
+ </select>
+ 
+ <select id="officeDealList" parameterType ="DealDto" resultType="DealDto">
+     SELECT dong, office_name name, gugun_code gugunCode, deal_amount dealAmount, build_year buildYear, deal_year dealYear, deal_month dealMonth, deal_day dealDay, area, floor, jibun 
+       FROM officedeal
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+   ORDER BY build_Year DESC
+      LIMIT #{start}, #{spp}
+ </select>
+ 
+ <select id="getTotCntOfficeDeal" parameterType="DealDto" resultType="int">
+     SELECT count(no) 
+      FROM officedeal
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+ </select>
+ 
+  <select id="homeRentList" parameterType ="DealDto" resultType="DealDto">
+      SELECT dong, home_name name, gugun_code gugunCode, deposit, build_year buildYear, deal_year dealYear, deal_month dealMonth, deal_day dealDay, area, floor, jibun , rent_money rentMoney 
+       FROM homerent
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+      <if test="type == 1">
+     	AND rent_money > 0
+      </if>
+      <if test="type == 2">
+      	AND rent_money = 0
+      </if>
+   ORDER BY build_Year DESC
+      LIMIT #{start}, #{spp}
+ </select>
+ 
+ <select id="getTotCntHomeRent" parameterType="DealDto" resultType="int">
+     SELECT count(idx) 
+       FROM homerent
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+      <if test="type == 1">
+     	AND rent_money > 0
+      </if>
+      <if test="type == 2">
+      	AND rent_money = 0
+      </if>
+ </select>
+ 
+ <select id="homeDealList" parameterType ="DealDto" resultType="DealDto">
+     SELECT dong, home_name name, gugun_code gugunCode, deal_amount dealAmount, build_year buildYear, deal_year dealYear, deal_month dealMonth, deal_day dealDay, area, floor, jibun 
+       FROM homedeal
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+   ORDER BY build_Year DESC
+      LIMIT #{start}, #{spp}
+ </select>
+ 
+ <select id="getTotCntHomeDeal" parameterType="DealDto" resultType="int">
+     SELECT count(idx)
+      FROM homedeal
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+ </select>
+ 
+ <select id="aptRentList" parameterType ="DealDto" resultType="DealDto">
+     SELECT dong, apt_name name, gugun_code gugunCode, deposit, build_year buildYear, deal_year dealYear, deal_month dealMonth, deal_day dealDay, area,floor, jibun, rent_money rentMoney  
+       FROM aptrent
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+      <if test="type == 1">
+     	AND rent_money > 0
+      </if>
+      <if test="type == 2">
+      	AND rent_money = 0
+      </if>
+   ORDER BY build_Year DESC
+      LIMIT #{start}, #{spp}
+ </select>
+ 
+ <select id="getTotCntAptRent" parameterType="DealDto" resultType="int">
+     SELECT count(idx) 
+       FROM aptrent
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+      <if test="type == 1">
+     	AND rent_money > 0
+      </if>
+      <if test="type == 2">
+      	AND rent_money = 0
+      </if>
+ </select>
+ 
+ <select id="aptDealList" parameterType ="DealDto" resultType="DealDto">
+     SELECT dong, apt_name name, gugun_code gugunCode, deal_amount dealAmount, build_year buildYear, deal_year dealYear, deal_month dealMonth, deal_day dealDay, area, floor, jibun 
+       FROM aptdeal
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong}
+   ORDER BY build_Year DESC
+      LIMIT #{start}, #{spp}
+ </select>
+ 
+ <select id="getTotCntAptDeal" parameterType="DealDto" resultType="int">
+     SELECT count(idx)
+       FROM aptdeal
+      WHERE gugun_code = #{gugunCode}
+        AND dong = #{dong} 
+ </select>
+	
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.vue.model.mapper.InterestLocationMapper">
+
+	<select id="getLocationsById" parameterType="String" resultType="InterestLocationDto">
+		select userid, sido, gugun, dong
+		from interest_location
+		where userid = #{userid}
+	</select>
+	
+	<insert id="setLocation" parameterType="InterestLocationDto">
+		insert into interest_location (userid, sido, gugun, dong)
+		values (#{userid}, #{sido}, #{gugun}, #{dong})
+	</insert>
+
+</mapper>
