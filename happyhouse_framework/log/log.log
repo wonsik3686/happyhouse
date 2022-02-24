@@ -1,0 +1,2 @@
+[2m2021-11-26 01:18:27.090[0;39m [33m WARN[0;39m [35m22300[0;39m [2m---[0;39m [2m[l-6 housekeeper][0;39m [36mcom.zaxxer.hikari.pool.HikariPool       [0;39m [2m:[0;39m HikariPool-6 - Thread starvation or clock leap detected (housekeeper delta=26m34s677ms981µs400ns).
+[2m2021-11-26 02:47:54.330[0;39m [32m INFO[0;39m [35m22300[0;39m [2m---[0;39m [2m[3237)-127.0.0.1][0;39m [36minMXBeanRegistrar$SpringApplicationAdmin[0;39m [2m:[0;39m Application shutdown requested.
